@@ -113,7 +113,7 @@ public class TestFile {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFile))) {
             String temp = null;
             String[] temp2  = new String[5];
-            writer.write("ID,Quiz1,Quiz2,Quiz3,Quiz4,Quiz5");
+            writer.write("ID,Quiz1,Quiz2,Quiz3,Quiz4,Quiz5"+"\n");
             for (String studentID : originalFile.keySet()) {
                 for(int i = 0;i<5;i++){
                     temp2[i]= Integer.toString(originalFile.get(studentID)[i]);

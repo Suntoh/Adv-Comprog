@@ -14,7 +14,7 @@ public class TestApp {
         TestFile testFile = new TestFile();
 
         // Task 1: Test the 'read_scores' method
-        HashMap<String, int[]> allScores = testFile.read_scores("Lab9/student_scores.csv");
+        HashMap<String, int[]> allScores = testFile.read_scores("student_scores.csv");
         System.out.println("All Scores:");
         for (String studentID : allScores.keySet()) {
             System.out.println(studentID + " - " + Arrays.toString(allScores.get(studentID)));
@@ -30,11 +30,11 @@ public class TestApp {
         }
 
         // Task 3: Test the 'getEditedStudentID' method
-        HashSet<String> editedStudentIDs = testFile.getEditedStudentID("Lab9/edited_scores.csv");
+        HashSet<String> editedStudentIDs = testFile.getEditedStudentID("edited_scores.csv");
         System.out.println("Edited Student IDs: " + editedStudentIDs);
 
         // Task 4: Test the 'createNewEditedScore' method
-        testFile.createNewEditedScore("Lab9/student_scores.csv", "Lab9/edited_scores.csv", "Lab9/new_scores.csv");
+        testFile.createNewEditedScore("student_scores.csv", "edited_scores.csv", "new_scores.csv");
         System.out.println("New scores have been written to 'new_scores.csv'.");
 
     }
