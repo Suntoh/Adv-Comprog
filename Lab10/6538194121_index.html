@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive To-Do List</title>
+    <style>
+        /* Provided CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: lightcyan;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            color:rgba(10, 62, 62, 0.66);
+            font-size: 32px;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+        }
+
+        li {
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        label{
+            font-size: 22px;
+            color:rgba(26, 26, 26, 0.941);
+        }
+    </style>
+</head>
+<body>
+    <!-- Provided HTML structure -->
+    <h1>Interactive To-Do List</h1>
+
+    <form>
+        <label for="taskInput">New Task:</label>
+        <input type="text" id="taskInput" placeholder="Enter task" required onfocus="this.placeholder=''" 
+        onblur="this.placeholder='enter your text'" class="input">
+        <button type="button" onclick="addTask()">Add Task</button>
+    </form>
+
+    <ul id="taskList">
+        <!-- Tasks will be added dynamically here -->
+    </ul>
+
+    <script>
+      // Enter your script here
+      function addTask(){
+        const taskElems = document.getElementById("taskList");
+        const inputTask = document.getElementById("taskInput").value;
+        const task = document.createElement("li");
+
+        if (inputTask != ""){
+        task.textContent = inputTask;
+
+
+        const editButton =document.createElement("button");
+        editButton.textContent = "Edit"
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete"
+        editButton.onclick = function () {
+            const updatedText = prompt("Enter the updated text:", task.textContent);
+            if (updatedText !== "") {
+                task.textContent = updatedText;
+            }
+            else{
+                task.remove();
+                editButton.remove();
+                deleteButton.remove();
+            }
+        
+        }
+        deleteButton.onclick = function (){
+            task.remove();
+            editButton.remove();
+            deleteButton.remove();
+        }  
+        taskElems.appendChild(task);
+        taskElems.appendChild(editButton);
+        taskElems.appendChild(deleteButton);
+        console.log(inputTask);
+        
+        }
+        // const tasks = [...Array()];
+        // tasks.push(inputTask); 
+        document.querySelector('.input').value = '';
+      }
+      
+    </script>
+</body>
+</html>
